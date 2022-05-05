@@ -2,12 +2,12 @@ import { StorageSerializers, useStorage } from '@vueuse/core'
 import { Toast } from "vant";
 import { computed, ref } from "vue";
 
-const user = useStorage('user',null,undefined,{
+const user = useStorage('user', null, undefined, {
     serializer: StorageSerializers.object
 })
 
 export const useUser = () => {
-    
+
     const userModel = ref({
         username: '',
         password: ''
@@ -28,8 +28,8 @@ export const useUser = () => {
     }
 
     const logout = async () => {
-        user.value = null; 
-        Toast("您已推出登录!")
+        user.value = null;
+        Toast("您已退出登录!")
     }
 
     const loggedIn = computed(() => user.value?.id)
