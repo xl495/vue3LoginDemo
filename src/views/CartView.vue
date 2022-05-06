@@ -3,7 +3,7 @@ import { useCart } from "@/composables/useCart"
 import { Dialog } from "vant";
 const { cart, updateQuantity, removeFromCart, isCartEmpty } = useCart()
 
-const changeNum = (value: number, cartItem: CartItem) => {
+const changeNum = (value: number, cartItem: CartItem) :Promise<boolean> => {
   return new Promise((resolve) => {
     if (value === 0) {
       Dialog.confirm({
