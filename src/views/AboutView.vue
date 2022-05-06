@@ -6,7 +6,7 @@ const { loggedIn, user } = useUser()
 
 <template>
   <div class="about">
-    <p v-if="loggedIn">{{ user.userName }}
+    <p v-if="loggedIn">欢迎 , {{ user.userName }}
     </p>
     <h1>This is an about page</h1>
   </div>

@@ -1,6 +1,11 @@
 <script setup lang="ts">
+
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
+import { useCart } from "@/composables/useCart"
+import { useUser } from "@/composables/useUser"
+const { loggedIn } = useUser()
+const { totalProduct } = useCart()
 </script>
 
 <template>
@@ -13,6 +18,12 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/product" v-if="loggedIn">product</RouterLink>
+        <RouterLink to="/cart" v-if="loggedIn">my cart
+          <template v-if="totalProduct">
+            ({{ totalProduct }})
+          </template>
+        </RouterLink>
         <RouterLink to="/login">Login</RouterLink>
       </nav>
     </div>
@@ -28,7 +39,6 @@ import HelloWorld from '@/components/HelloWorld.vue'
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
 }
 

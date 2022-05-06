@@ -4,7 +4,7 @@ const { user, userModel, onSubmit, logout, loggedIn } = useUser()
 </script>
 <template>
   <div class="login">
-    <p v-if="loggedIn">{{ user.userName }}
+    <p v-if="loggedIn"> 欢迎 , {{ user.userName }}
     </p>
     <van-button v-if="loggedIn" size="small" round block type="danger" @click="logout">
       退出登录
